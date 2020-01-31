@@ -17,12 +17,25 @@ public class Employer extends AbstractEntity {
     @Size(max = 75)
     private String location;
 
-    @JoinColumn
-    @OneToMany
-    private List<Job> jobs = new ArrayList<>();
+
+//    @JoinColumn
+    @OneToMany(mappedBy="employer")
+    private final List<Job> jobs = new ArrayList<>();
 
     public Employer() {
     }
+
+    public List<Job> getJobs() {
+        return jobs;
+    }
+//
+//    public void setJobs(List<Job> jobs) {
+//        this.jobs = jobs;
+//    }
+
+
+
+
 
     public String getLocation() {
         return location;

@@ -38,6 +38,8 @@ public class HomeController {
         return "index";
     }
 
+    //@RequestParam Integer employerId
+    //^ does that need to go into the constructor?!
     @GetMapping("add")
     public String displayAddJobForm(Model model) {
         model.addAttribute("title", "Add Job");
@@ -47,38 +49,21 @@ public class HomeController {
         return "add";
     }
 
-//    @PostMapping("add")
-//    public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-//                                       Errors errors, Model model, @RequestParam int employerId, @RequestParam List<Integer> skills) {
-
-//    public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-//                                    Errors errors, Model model, @RequestParam int employerId, @RequestParam List<Integer> skills, @RequestParam int name) {
-
-//    public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-//                                    Errors errors, Model model, @RequestParam int employerId, @RequestParam List<Integer> skills, @RequestParam Job job) {
-//    @PostMapping("add")
-//    public String processAddJobForm(@ModelAttribute @Valid Job newJob,
-//                                    Errors errors, Model model, @RequestParam int employerId, @RequestParam List<Integer> skills) {
-
     @PostMapping("add")
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                     Errors errors, Model model, @RequestParam List<Integer> skills, @RequestParam int employerId) {
-
-
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Job");
             return "add";
         }
 
-
-//        employerRepository.findByValue(employer);
+//        model.addAttribute("employers", employerRepository.findById(employerId));
+//        model.addAttribute("employer", employerRepository.findById(employerId));
+//        newJob.setEmployer(employerRepository.findById(employerId));
+        employerRepository.findById(employerId);
 
         jobRepository.save(newJob);
-//        jobRepository.findAll();
-
-//        jobRepository.save(job);
-
 
         return "redirect:";
     }
