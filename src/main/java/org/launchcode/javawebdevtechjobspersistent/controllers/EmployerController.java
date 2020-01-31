@@ -27,9 +27,6 @@ public class EmployerController {
     }
 
 
-
-
-
     @GetMapping("add")
     public String displayAddEmployerForm(Model model) {
         model.addAttribute(new Employer());
@@ -49,26 +46,6 @@ public class EmployerController {
     }
 
 
-
-//////STILL WORKING ON THIS SECTION///////
-//    @GetMapping("view/{employerId}")
-//    public String displayViewEmployer(Model model, @PathVariable int employerId) {
-//
-//
-//        Optional optEmployer = null;
-//
-//        if (optEmployer.isPresent()) {
-//            Employer employer = (Employer) optEmployer.get();
-//
-//            employerRepository.findById(employerId);
-////            employerRepository.findAll();
-//
-//            return "employers/view";
-//        } else {
-//            return "redirect:../";
-//        }
-//    }
-
     @GetMapping("view/{employerId}")
     public String displayViewEmployer(Model model, @PathVariable Integer employerId) {
 
@@ -85,23 +62,5 @@ public class EmployerController {
             return "redirect:../";
         }
     }
-    //        public String displayViewEmployer(@RequestParam(required = false) Integer employerId, Model model) {
-//    public String displayViewEmployer(@PathVariable Integer employerId, Model model) {
-//
-//        if (employerId == null) {
-//            model.addAttribute("title", "All Employers");
-//            model.addAttribute("employers", employerRepository.findAll());
-//        }
-//            else {
-//                Optional<Employer> result = employerRepository.findById(employerId);
-//                if (result.isEmpty()) {
-//                    model.addAttribute("title", "Invalid Employer ID: " + employerId);
-//                }   else {
-//                    Employer employer = result.get();
-//                    model.addAttribute("title", "Employers in Category: " + employer.getName());
-//                    model.addAttribute("employers", employer.getName());
-//                }
-//        }
-//
-//            return "employers/view";
+
 }

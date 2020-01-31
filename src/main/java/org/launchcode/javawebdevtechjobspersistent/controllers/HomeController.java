@@ -38,8 +38,6 @@ public class HomeController {
         return "index";
     }
 
-    //@RequestParam Integer employerId
-    //^ does that need to go into the constructor?!
     @GetMapping("add")
     public String displayAddJobForm(Model model) {
         model.addAttribute("title", "Add Job");
@@ -58,11 +56,8 @@ public class HomeController {
             return "add";
         }
 
-//        model.addAttribute("employers", employerRepository.findById(employerId));
-//        model.addAttribute("employer", employerRepository.findById(employerId));
-//        newJob.setEmployer(employerRepository.findById(employerId));
-        employerRepository.findById(employerId);
-
+        Optional<Employer> newEmployer = employerRepository.findById(employerId);
+        model.addAttribute("Employer", newEmployer);
         jobRepository.save(newJob);
 
         return "redirect:";
@@ -73,6 +68,5 @@ public class HomeController {
 
         return "view";
     }
-
 
 }
