@@ -57,7 +57,7 @@ public class HomeController {
         }
 
         Optional<Employer> newEmployer = employerRepository.findById(employerId);
-        model.addAttribute("Employer", newEmployer);
+        model.addAttribute("employer", newEmployer);
         jobRepository.save(newJob);
 
         return "redirect:";
