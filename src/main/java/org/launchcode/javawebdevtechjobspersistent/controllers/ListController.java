@@ -1,7 +1,6 @@
 package org.launchcode.javawebdevtechjobspersistent.controllers;
 
 import org.launchcode.javawebdevtechjobspersistent.models.Job;
-import org.launchcode.javawebdevtechjobspersistent.models.Employer;
 import org.launchcode.javawebdevtechjobspersistent.models.data.EmployerRepository;
 import org.launchcode.javawebdevtechjobspersistent.models.data.JobRepository;
 import org.launchcode.javawebdevtechjobspersistent.models.data.SkillRepository;
@@ -37,7 +36,6 @@ public class ListController {
 
         columnChoices.put("all", "All");
         columnChoices.put("employer", "Employer");
-//        columnChoices.put("skills", "Skills");
         columnChoices.put("skill", "Skill");
 
     }
