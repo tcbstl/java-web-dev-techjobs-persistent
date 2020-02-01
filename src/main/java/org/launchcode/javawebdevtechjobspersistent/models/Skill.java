@@ -1,6 +1,7 @@
 package org.launchcode.javawebdevtechjobspersistent.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
@@ -13,8 +14,10 @@ public class Skill extends AbstractEntity {
     @Size(max = 250)
     private String description;
 
+//    @JoinColumn
     @ManyToMany(mappedBy = "skills")
-    private final List<Job> jobs = new ArrayList<>();
+    private List<Job> jobs = new ArrayList<>();
+//    private final List<Job> jobs = new ArrayList<>();
 
 
     public Skill() {
@@ -27,6 +30,10 @@ public class Skill extends AbstractEntity {
 //    public List<Skill> getSkills() {
 //        return skills;
 //    }
+
+    public void setJobs(List<Job> jobs) {
+        this.jobs = jobs;
+    }
 
     public List<Job> getJobs() {
         return jobs;
