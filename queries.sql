@@ -13,3 +13,10 @@ ALTER TABLE techjobs.job
 DROP COLUMN employer;
 
 ## Part 4: Test it with SQL
+
+SELECT *
+FROM techjobs.skill
+INNER JOIN techjobs.job_skills
+ON techjobs.skill.id = techjobs.job_skills.skills_id
+ORDER BY name asc;
+
